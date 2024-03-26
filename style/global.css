@@ -1,14 +1,17 @@
 /* Global tags definition */
 html {
     box-sizing: border-box;
-    font-family: "Roboto";
+    font-family: var(--ff-primary);
   }
   *, *:before, *:after {
     box-sizing: border-box;
   }
 
 body {
+    width: 100%;
+    padding: 0;
     margin: 0;
+    background-color: var(--clr-primary-100);
 }
 
 h1, h2, h3, a, p, button, div {
@@ -27,57 +30,107 @@ a:hover {
     color: var(--logo-green);
 }
 
-h1 {
-    text-transform: capitalize;
-    font-size: var(--font-very-big);
-    font-weight: 700;
-    line-height: 100%;
-    letter-spacing: 17%;
-    color: var(--soft-black-text);
-}
-
-h2 {
-    text-transform: capitalize;
-    font-size: var(--font-big);
-    font-weight: 700;
-    line-height: 100%;
-    letter-spacing: 10.88px;
-    color: var(--soft-black-text);
-}
-
-p {
-    font-size: var(--font-smaller);
-    font-style: normal;
-    font-weight: 400;
-    line-height: 120%; /* 24px */
-    letter-spacing: 1px;
-}
-
-
 /* Global Variables */
 :root {
-    --logo-green: #66E7A9;
-    --soft-brow: rgba(255,207,154,1);
-    --soft-black-text: rgba(0,0,0,0.7);
-    --font-very-big: 58px;
-    --font-big: 48px;
-    --font-medium: 36px;
-    --font-small: 24px;
-    --font-smaller: 20px;
+    /* Primary is background */
+    --clr-primary-100: #FCFCFC;
+    --clr-primary-300: #66d0e880;
+    --clr-primary-500: #FFCF9A;
+
+    /* Accent color is the brand color */
+    --clr-accent-400: #66E7A9;
+
+    /* Neutral color is for texts, and neutral things */
+    --clr-neutral-400: #616161;
+    --clr-neutral-600: #1D4F37;
+    --clr-neutral-900: #000000;
+
+    --ff-primary: "Roboto";
+
+    --fs-200: 20px;
+    --fs-400: 32px;
+    --fs-600: 40px;
+    --fs-800: 56px;
+
+    --fw-thin: 300;
+    --fw-regular: 400;
+    --fw-bold: 700;
+
+    --fs-heading-1: var(--fs-600);
+    --fs-heading-2: var(--fs-400);
+
+    --ls-heading-1: 0.1em;
+
+    --size-100: 16px;
+    --size-200: 32px;
+    --size-300: 40px;
+    --size-400: 64px;
+    --size-500: 80px;
+    --size-600: 96px;
+    --size-700: 112px;
+    --size-800: 128px;
+    --size-900: 144px;
+
+    --blk-size-400: 100%
+}
+
+@media (min-width: 50em) {
+    :root {
+        --fs-heading-1: var(--fs-800);
+        --fs-heading-2: var(--fs-600);
+
+        --blk-size-400: 525px;
+    }
 }
 
 /* Utilities */
 
+.flow > * + * {
+    margin-top: var(--flow-space, 0.25em);
+}
+
 .hbox {
     display: flex;
     align-items: center;
-    gap: 15px;
 }
 
 .vbox {
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+
+/* Vertical on mobile and horizontal on desktop */
+.vhbox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.vh-reversebox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.scr-margin {
+    margin: 0 20px;
+}
+
+
+
+@media (min-width: 50em) {
+    .vhbox {
+        flex-direction: row;
+    }
+    .vh-reversebox {
+        flex-direction: row-reverse;
+    }
+    .scr-margin {
+        margin: 0 188px;
+    }
 }
 
 .spaced-content {
@@ -87,6 +140,53 @@ p {
 .center {
     justify-content: center;
     align-items: center;
+}
+
+.text-neutral {
+    font-size: var(--fs-200);
+}
+
+.centered-text {
+    text-align: center;
+}
+
+.heading-1 {
+    font-size: var(--fs-heading-1);
+    letter-spacing: var(--ls-heading-1);
+}
+
+.heading-2 {
+    font-size: var(--fs-heading-2);
+    font-weight: var(--fw-bold);
+    letter-spacing: var(--ls-heading-1);
+}
+
+.clr-primary-100 {
+    color: var(--clr-primary-100);
+}
+.clr-primary-300 {
+    color: var(--clr-primary-300);
+}
+.clr-primary-500 {
+    color: var(--clr-primary-500);
+}
+
+.clr-accent-400 {
+    color: var(--clr-accent-400);
+}
+
+.clr-neutral-400 {
+    color: var(--clr-neutral-400);
+}
+.clr-neutral-600 {
+    color: var(--clr-neutral-600);
+}
+.clr-neutral-900 {
+    color: var(--clr-neutral-900);
+}
+
+.blk-size-400 {
+    width: var(--blk-size-400);
 }
 
 .hfull {
@@ -100,87 +200,72 @@ p {
     flex-direction: row;
 }
 
-.hblock1 {
-    width: 75px;
+.gap-100 {
+    gap: var(--size-100);
 }
 
-.hblock2 {
-    width: 165px;
-}
-
-.hblock3 {
-    width: 255px;
-}
-
-.hblock4 {
-    width: 345px;
-}
-
-.hblock5 {
-    width: 435px;
-}
-
-.hblock6 {
-    width: 525px;
-}
-
-.hblock7 {
-    width: 615px;
-}
-
-.bottom-margin1 {
-    margin-bottom: 6px;
-}
-
-.bottom-margin2 {
-    margin-bottom: 12px;
-}
-
-.bottom-margin3 {
-    margin-bottom: 18px;
-}
-
-.bottom-margin4 {
-    margin-bottom: 24px;
-}
-
-.green-text {
-    color: #66E7A9;
-    text-decoration: underline;
+.gap-900 {
+    gap: var(--size-900);
 }
 
 /* Global components specification */
 
+
 .header-container {
-    padding-left: 50px;
-    margin-top: 15px;
-    padding-right: 185px;
-    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--size-100);
+    gap: var(--size-100);
 }
 
 .header-logo-image {
-    width: 80px;
-    height: 80px;
+    width: 50px;
+    height: auto;
 }
 
 .header-logo-text {
     font-family: "Krona One";
-    font-size: 22px;
+    font-size: 12px;
     line-height: 135%;
-    letter-spacing: 5px;
-    font-weight: 400;
-    font-style: normal;
-    width: 100px;
-    margin-left: 12px;
+    letter-spacing: 15%;
+}
+
+@media (min-width: 50em) {
+    .header-container {
+        flex-direction: row;
+        justify-content: space-between;
+        margin-left: var(--size-200);
+        margin-right: var(--size-900);
+    }
+    .header-logo-image {
+        width: 80px;
+    }
+    .header-logo-text {
+        font-size: 22px;
+        width: 100px;
+    }
+}
+
+.txt-mobile-centered {
+    text-align: center;
+    vertical-align: middle;
+}
+
+@media (min-width: 50em) {
+    .txt-mobile-centered {
+        text-align: left;
+        vertical-align: auto;
+    }
 }
 
 .logo-safe-word {
-    color: var(--logo-green);
+    color: var(--clr-accent-400);
 }
 
-.content-block {
-    margin-right: 185px;
-    margin-left: 185px;
+.nav-bar {
+    width: max(30%, 300px);
 }
 
 .white-on-green-bttn {

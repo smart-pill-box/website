@@ -1,0 +1,28 @@
+.posts {
+    margin-top: var(--size-400);
+    
+}
+
+#post-content {
+    margin: var(--size-100) 10%;
+}
+
+#post-content h1 {
+    color: var(--clr-neutral-600);
+    font-size: var(--fs-heading-1);
+}
+
+#post-content img {
+    width: min(60%, 600px);
+    display: block;
+    margin: 0 auto;
+}
+
+.post-preview-image {
+    width: min(80%, 900px);
+}
+
+.post-image {
+    margin-top: var(--size-500);
+    width: min(80%, 900px);
+}
