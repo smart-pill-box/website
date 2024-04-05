@@ -7,15 +7,34 @@
     margin: var(--size-100) 10%;
 }
 
+#post-content p h1 h2 h3 li ul a {
+    font-family: var(--ff-primary);
+}
+
 #post-content h1 {
     color: var(--clr-neutral-600);
     font-size: var(--fs-heading-1);
+    margin-bottom: 16px;
+}
+
+#post-content p {
+    font-family: var(--ff-primary);
+    font-size: var(--fs-200);
+    margin-bottom: 8px;
+}
+
+#post-content li {
+    margin-bottom: 8px;
 }
 
 #post-content img {
     width: min(60%, 600px);
     display: block;
     margin: 0 auto;
+}
+
+#post-content strong {
+    color: var(--clr-neutral-600);
 }
 
 .post-preview-image {
